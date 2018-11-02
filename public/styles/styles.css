@@ -1,0 +1,16 @@
+
+.button-wrapper {
+    border: 1px solid blue;
+}
+.button-submit {
+    display: inline-block;
+    width:120px;
+    height:120px;
+    border: 1px solid red;
+}
+.button-new {
+    display: inline-block;
+    width:120px;
+    height:120px;
+    border: 1px solid green;
+}

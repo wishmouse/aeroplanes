@@ -1,9 +1,10 @@
 var $ = require('jquery')
 var request = require('superagent')
-var _database = require('./_database')
+//var _functions = require('./_functions')
 
 newArray = []
 newObject ={}
+uniqArray =[]
 uniqArray =[]
 
 $( document ).ready(function() {
@@ -21,14 +22,9 @@ $( document ).ready(function() {
     ]
 
   $('#new').click(function(){
-
-
-  var random = data[Math.floor(Math.random()*data.length)]
-  console.log('random:: '+random)
+  random = data[Math.floor(Math.random()*data.length)]
   newArray.push(random)
   buildNewArray()
-  /*var arry1 =data.splice( data.indexOf('random'), 1 )
-  console.log('arry1:: '+ arry1)*/
     function buildNewArray(){
         if(newArray.length <6 || uniqArray.length <6){
           opt1 = data[Math.floor(Math.random()*data.length)]
@@ -37,13 +33,99 @@ $( document ).ready(function() {
               if (a.indexOf(b) < 0 ) a.push(b);
               return a;
             },[]);
-            console.log("newArray with duplicates::", uniqArray)
             buildNewArray()
         }else{
-          console.log(uniqArray)
+                function compare(a,b) {
+                    if (a.id < b.id)
+                      return -1;
+                    if (a.id > b.id)
+                      return 1;
+                    return 0;
+                  }
+                uniqArray.sort(compare);
+                oneOfThree()
         }
-    }
-
-
+      }
   });
+
+  function oneOfThree(){
+    oneOfThree = Math.floor(Math.random() * 3) + 1;
+    if(oneOfThree == 1){ //airline is the question
+      var question = ""+
+                  "<tr class='question'>"+
+                    "<td class='question_block' value='"+random.id+"'>"+ random.airL+"</td>"+
+                  "</div>"
+      $('#airline').append(question)
+      optionsCallSigns()
+      optionsDesignator()
+      console.log(random.airL)
+    }else if(oneOfThree == 2){ //call sign is the question
+      var question = ""+
+                  "<tr class='question'>"+
+                    "<td class='question_block' value='"+random.id+"'>"+ random.callS+"</td>"+
+                  "</div>"
+      $('#call_sign').append(question)
+      optionsAirlines()
+      optionsDesignator()
+      console.log(random.callS)
+    }else if (oneOfThree == 3){ // designator is the question
+      var question = ""+
+                  "<tr class='question'>"+
+                    "<td class='question_block' value='"+random.id+"'>"+ random.des+"</td>"+
+                  "</div>"
+        $('#designator').append(question)
+        optionsCallSigns()
+        optionsAirlines()
+        console.log(random.des)
+      }
+  }
+
+  function optionsCallSigns(){
+    console.log('uniqArray:', uniqArray)
+    for(i = 0; i < uniqArray.length; i++){
+
+      var callReturned= uniqArray[i]
+      $(callReturned).each(function(){
+        var callOptions = ""+
+                    "<tr class='question'>"+
+                      "<td class='option_block' value='"+callReturned.id+"'>"+ callReturned.callS+"</td>"+
+                    "</div>"
+                    $('#call_sign').append(callOptions)
+         })
+    }
+  }
+
+  function optionsAirlines(){
+    console.log('uniqueArray:', uniqArray)
+    for(i = 0; i < uniqArray.length; i++){
+      var callReturned= uniqArray[i]
+      $(callReturned).each(function(){
+        var callOptions = ""+
+                    "<div class='question'>"+
+                      "<div class='option_block' value='"+callReturned.id+"'>"+ callReturned.airL+"</td>"+
+                    "</div>"
+                    $('#airline').append(callOptions)
+         })
+    }
+  }
+
+  function optionsDesignator(){
+    console.log('uniqArray', uniqArray)
+      uniqArray.sort(function() {
+      return .5 - Math.random();
+    });
+
+    for(i = 0; i < uniqArray.length; i++){
+      var callReturned= uniqArray[i]
+      $(callReturned).each(function(){
+        var callOptions = ""+
+                    "<div class='question'>"+
+                      "<div class='option_block' value='"+callReturned.id+"'>"+ callReturned.des+"</td>"+
+                    "</div>"
+                    $('#designator').append(callOptions)
+         })
+    }
+  }
+
+
 }); // end doc ready

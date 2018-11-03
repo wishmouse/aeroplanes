@@ -30,3 +30,12 @@
     height:30px;
     border: 1px solid green;
 }
+
+.question{
+    border: 1px orange solid;
+    padding: 7px;
+}
+
+.option_block{
+  text-align: center
+}

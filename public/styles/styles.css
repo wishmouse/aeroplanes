@@ -1,16 +1,32 @@
-
-.button-wrapper {
-    border: 1px solid blue;
+.input{
+  font-size: 35px;
+  text-align: center;
 }
-.button-submit {
+.button-wrapper {
+    padding-top: 100%
+}
+.inside-button {
     display: inline-block;
-    width:120px;
-    height:120px;
-    border: 1px solid red;
+    float: left;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    width: 45.5%;
+    height: 34px;
+    background: #9c89f642;
+    border-radius: 3px;
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 7px 11px 0;
+    color: #888;
+    text-align: center;
+    transition: all 0.2s ease;
+    font: bold 18px Arial, sans-serif;
+    padding-top: 10px;
+    margin-left: 2%;
 }
 .button-new {
     display: inline-block;
-    width:120px;
-    height:120px;
+    width:40%;
+    height:30px;
     border: 1px solid green;
 }

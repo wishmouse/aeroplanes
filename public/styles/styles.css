@@ -30,12 +30,48 @@
     height:30px;
     border: 1px solid green;
 }
-
 .question{
+      font-size: 28px;
+      font-weight: 800;
+}
+
+.question_block{
+  text-align: center;
+}
+
+
+.options {
     border: 1px orange solid;
     padding: 7px;
+    margin-top: 10px;
+    text-align:center;
 }
 
 .option_block{
   text-align: center
+}
+
+.call_selected{
+  background:lightblue;
+}
+.airline_selected{
+  background:lightblue;
+}
+
+.des_selected{
+    background:lightblue;
+}
+
+.error{
+  background:red;
+  font-size: 18px;
+  color:white;
+  text-align:center;
+}
+
+.correct{
+  background:green;
+  font-size: 18px;
+  color:white;
+  text-align:center;
 }

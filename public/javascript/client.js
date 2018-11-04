@@ -5,7 +5,7 @@ var request = require('superagent')
 newArray = []
 newObject ={}
 uniqArray =[]
-uniqArray =[]
+emptyArray =[]
 
 $( document ).ready(function() {
   data=[
@@ -22,6 +22,10 @@ $( document ).ready(function() {
     ]
 
   $('#new').click(function(){
+  //uniqArray = newArray
+  //newArray = []
+  //console.log(newArray)
+  //random = ''
   random = data[Math.floor(Math.random()*data.length)]
   newArray.push(random)
   buildNewArray()
@@ -51,32 +55,35 @@ $( document ).ready(function() {
   function oneOfThree(){
     oneOfThree = Math.floor(Math.random() * 3) + 1;
     if(oneOfThree == 1){ //airline is the question
+      questionId = random.id
       var question = ""+
-                  "<tr class='question'>"+
-                    "<td class='question_block' value='"+random.id+"'>"+ random.airL+"</td>"+
+                  "<div class='question'>"+
+                    "<div class='question_block' guess='"+random.id+"'>"+ random.airL+"</div>"+
                   "</div>"
       $('#airline').append(question)
       optionsCallSigns()
       optionsDesignator()
-      console.log(random.airL)
+      console.log('random.id', random.id)
     }else if(oneOfThree == 2){ //call sign is the question
+      questionId = random.id
       var question = ""+
-                  "<tr class='question'>"+
-                    "<td class='question_block' value='"+random.id+"'>"+ random.callS+"</td>"+
+                  "<div class='question'>"+
+                    "<div class='question_block' guess='"+random.id+"'>"+ random.callS+"</div>"+
                   "</div>"
       $('#call_sign').append(question)
       optionsAirlines()
       optionsDesignator()
-      console.log(random.callS)
+      console.log('random.id', random.id)
     }else if (oneOfThree == 3){ // designator is the question
+      questionId = random.id
       var question = ""+
-                  "<tr class='question'>"+
-                    "<td class='question_block' value='"+random.id+"'>"+ random.des+"</td>"+
+                  "<div class='questions'>"+
+                    "<div class='question_block' guess='"+random.id+"'>"+ random.des+"</div>"+
                   "</div>"
         $('#designator').append(question)
         optionsCallSigns()
         optionsAirlines()
-        console.log(random.des)
+        console.log('random.id', random.id)
       }
   }
 
@@ -86,10 +93,7 @@ $( document ).ready(function() {
 
       var callReturned= uniqArray[i]
       $(callReturned).each(function(){
-        var callOptions = ""+
-                    "<tr class='question'>"+
-                      "<td class='option_block' value='"+callReturned.id+"'>"+ callReturned.callS+"</td>"+
-                    "</div>"
+        var callOptions = ""+"<div class='options' guess='"+callReturned.id+"'>"+ callReturned.callS+"</div>"
                     $('#call_sign').append(callOptions)
          })
     }
@@ -100,10 +104,7 @@ $( document ).ready(function() {
     for(i = 0; i < uniqArray.length; i++){
       var callReturned= uniqArray[i]
       $(callReturned).each(function(){
-        var callOptions = ""+
-                    "<div class='question'>"+
-                      "<div class='option_block' value='"+callReturned.id+"'>"+ callReturned.airL+"</td>"+
-                    "</div>"
+        var callOptions = ""+"<div class='options' guess='"+callReturned.id+"'>"+ callReturned.airL+"</div>"
                     $('#airline').append(callOptions)
          })
     }
@@ -118,14 +119,62 @@ $( document ).ready(function() {
     for(i = 0; i < uniqArray.length; i++){
       var callReturned= uniqArray[i]
       $(callReturned).each(function(){
-        var callOptions = ""+
-                    "<div class='question'>"+
-                      "<div class='option_block' value='"+callReturned.id+"'>"+ callReturned.des+"</td>"+
-                    "</div>"
-                    $('#designator').append(callOptions)
-         })
+             var callOptions = ""+"<div class='options' guess='"+callReturned.id+"'>"+ callReturned.des+"</div>"
+                     $('#designator').append(callOptions)
+          })
     }
   }
+
+
+$('#airline').delegate('.options', 'click', function(e){
+      $('#airline_error').remove()
+      $('.options').removeClass('airline_selected')
+      $(this).addClass("airline_selected")
+      airlineChoiceId =$(this).attr('guess')
+      if(questionId != airlineChoiceId){
+         errorMsg = ""+"<div id='airline_error' class='error'>Oops.. try again</div>"
+          $('#airline').append(errorMsg)
+      }else if(questionId == airlineChoiceId){
+         correctMsg = ""+"<div id='airline_correct' class='correct'>Crowd Goes Wild</div>"
+                $('#airline').append(correctMsg)
+
+      }
+      console.log('airlineChoiceId', airlineChoiceId)
+  })
+
+$('#call_sign').delegate('.options', 'click', function(e){
+        $('#callsign_error').remove()
+        $('.options').removeClass('call_selected')
+        $(this).addClass("call_selected")
+        callsignChoiceId =$(this).attr('guess')
+        if(questionId != callsignChoiceId){
+           errorMsg = ""+"<div id='callsign_error' class='error'>Oops.. try again</div>"
+            $('#call_sign').append(errorMsg)
+        }else if(questionId == callsignChoiceId){
+           correctMsg = ""+"<div id='callsign_correct' class='correct'>Crowd Goes Wild</div>"
+                  $('#call_sign').append(correctMsg)
+
+        }
+
+        console.log('callsignChoiceId', callsignChoiceId)
+    })
+
+$('#designator').delegate('.options', 'click', function(e){
+    $('#designator_error').remove()
+          $('.options').removeClass('des_selected')
+    $(this).addClass("des_selected")
+    designatorChoiceId =$(this).attr('guess')
+    if(questionId != designatorChoiceId){
+       errorMsg = ""+"<div id='designator_error' class='error'>Oops.. try again</div>"
+              $('#designator').append(errorMsg)
+    }else if(questionId == designatorChoiceId){
+       correctMsg = ""+"<div id='designator_correct' class='correct'>Crowd Goes Wild</div>"
+              $('#designator').append(correctMsg)
+
+    }
+
+})
+
 
 
 }); // end doc ready

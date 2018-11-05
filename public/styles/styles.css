@@ -1,9 +1,16 @@
+.heading{
+      font-family: courier;
+      font-size: 20px;
+      text-align: center;
+      font-weight: 900;
+}
+
 .input{
   font-size: 35px;
   text-align: center;
 }
 .button-wrapper {
-    padding-top: 100%
+    padding-top: 5%
 }
 .inside-button {
     display: inline-block;

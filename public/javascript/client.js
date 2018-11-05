@@ -1,6 +1,6 @@
 var $ = require('jquery')
 var request = require('superagent')
-//var _functions = require('./_functions')
+var _functions = require('./_functions')
 
 newArray = []
 newObject ={}
@@ -22,10 +22,7 @@ $( document ).ready(function() {
     ]
 
   $('#new').click(function(){
-  //uniqArray = newArray
-  //newArray = []
-  //console.log(newArray)
-  //random = ''
+    _functions.clear()
   random = data[Math.floor(Math.random()*data.length)]
   newArray.push(random)
   buildNewArray()
@@ -33,6 +30,7 @@ $( document ).ready(function() {
         if(newArray.length <6 || uniqArray.length <6){
           opt1 = data[Math.floor(Math.random()*data.length)]
             newArray.push(opt1)
+            console.log(newArray);
             uniqArray = newArray.reduce(function(a,b){
               if (a.indexOf(b) < 0 ) a.push(b);
               return a;
@@ -47,12 +45,12 @@ $( document ).ready(function() {
                     return 0;
                   }
                 uniqArray.sort(compare);
-                oneOfThree()
+                oneOfThreeSelect()
         }
       }
   });
 
-  function oneOfThree(){
+  function oneOfThreeSelect(){
     oneOfThree = Math.floor(Math.random() * 3) + 1;
     if(oneOfThree == 1){ //airline is the question
       questionId = random.id

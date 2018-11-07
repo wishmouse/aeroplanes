@@ -90,10 +90,27 @@ $( document ).ready(function() {
     for(i = 0; i < uniqArray.length; i++){
 
       var callReturned= uniqArray[i]
-      $(callReturned).each(function(){
-        var callOptions = ""+"<div class='options' guess='"+callReturned.id+"'>"+ callReturned.callS+"</div>"
+       $(callReturned).each(function(){
+          var callOptions = ""+
+             "<tr class='option_wrapper'>"+
+                "<td class='pad_left'>"+"</td>"+
+                    "<td class='options' guess='"+callReturned.id+"'>"+ callReturned.callS+"</td>"+
+                "<td class='pad_right'>"+"</td>"+
+              "</tr>"+ 
+              "<tr class='spacer'>"+"</tr>"
+            $('#call_sign').append(callOptions)
+           })
+/*
+  $(callReturned).each(function(){
+        var callOptions = ""+
+           "<div class='option_wrapper'>"+
+              "<div class='pad_left'>"+"</div>"+
+                  "<div class='options' guess='"+callReturned.id+"'>"+ callReturned.callS+"</div>"+
+              "<div class='pad_right'>"+"</div>"+
+            "</div>"
                     $('#call_sign').append(callOptions)
          })
+*/
     }
   }
 
@@ -102,7 +119,12 @@ $( document ).ready(function() {
     for(i = 0; i < uniqArray.length; i++){
       var callReturned= uniqArray[i]
       $(callReturned).each(function(){
-        var callOptions = ""+"<div class='options' guess='"+callReturned.id+"'>"+ callReturned.airL+"</div>"
+        var callOptions = ""+
+         "<div class='option_wrapper'>"+
+            "<div class='pad_left'>"+"</div>"+
+                "<div class='options' guess='"+callReturned.id+"'>"+ callReturned.airL+"</div>"+
+            "<div class='pad_right'>"+"</div>"+
+          "</div>"
                     $('#airline').append(callOptions)
          })
     }
@@ -117,8 +139,13 @@ $( document ).ready(function() {
     for(i = 0; i < uniqArray.length; i++){
       var callReturned= uniqArray[i]
       $(callReturned).each(function(){
-             var callOptions = ""+"<div class='options' guess='"+callReturned.id+"'>"+ callReturned.des+"</div>"
-                     $('#designator').append(callOptions)
+             var callOptions = ""+
+              "<div class='option_wrapper'>"+
+                "<div class='pad_left'>"+"</div>"+
+                  "<div class='options' guess='"+callReturned.id+"'>"+ callReturned.des+"</div>"+
+                "<div class='pad_right'>"+"</div>"+
+              "</div>"
+              $('#designator').append(callOptions)
           })
     }
   }
@@ -126,6 +153,7 @@ $( document ).ready(function() {
 
 $('#airline').delegate('.options', 'click', function(e){
       $('#airline_error').remove()
+      $('#airline_correct').remove()
       $('.options').removeClass('airline_selected')
       $(this).addClass("airline_selected")
       airlineChoiceId =$(this).attr('guess')
@@ -142,6 +170,7 @@ $('#airline').delegate('.options', 'click', function(e){
 
 $('#call_sign').delegate('.options', 'click', function(e){
         $('#callsign_error').remove()
+        $('#callsign_correct').remove()
         $('.options').removeClass('call_selected')
         $(this).addClass("call_selected")
         callsignChoiceId =$(this).attr('guess')
@@ -159,7 +188,8 @@ $('#call_sign').delegate('.options', 'click', function(e){
 
 $('#designator').delegate('.options', 'click', function(e){
     $('#designator_error').remove()
-          $('.options').removeClass('des_selected')
+    $('#designator_correct').remove()
+    $('.options').removeClass('des_selected')
     $(this).addClass("des_selected")
     designatorChoiceId =$(this).attr('guess')
     if(questionId != designatorChoiceId){

@@ -6,6 +6,14 @@ function clear(){
   newArray = []
   random = ''
   oneOfThree =''
+  question =''
+  callOptions = ''
+  callReturned = ''
+  errorMsg =''
+
+  $('.question').remove()
+  $('.options').remove()
+  $('.correct').remove()
 }
 
 

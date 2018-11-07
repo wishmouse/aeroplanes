@@ -46,12 +46,38 @@
   text-align: center;
 }
 
+.option_wrapper{
 
+}/*
+.pad_left{
+  float: left;
+  width: 31%;
+  margin: 20px 1.15%;
+  height: 160px;
+  background-color: #B2D6FF;
+}*/
+
+
+
+.pad_right{
+width: 6em;
+}
+
+.pad_left{
+width: 6em;
+}
+
+.spacer{
+  height: 10px;
+  background:aqua;
+}
 .options {
     border: 1px orange solid;
     padding: 7px;
     margin-top: 10px;
     text-align:center;
+    width: 15em;
+    border-radius: 5%
 }
 
 .option_block{

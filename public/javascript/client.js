@@ -23,6 +23,7 @@ $( document ).ready(function() {
 
   $('#new').click(function(){
     _functions.clear()
+
   random = data[Math.floor(Math.random()*data.length)]
   newArray.push(random)
   buildNewArray()
@@ -75,7 +76,7 @@ $( document ).ready(function() {
     }else if (oneOfThree == 3){ // designator is the question
       questionId = random.id
       var question = ""+
-                  "<div class='questions'>"+
+                  "<div class='question'>"+
                     "<div class='question_block' guess='"+random.id+"'>"+ random.des+"</div>"+
                   "</div>"
         $('#designator').append(question)
@@ -95,22 +96,11 @@ $( document ).ready(function() {
              "<tr class='option_wrapper'>"+
                 "<td class='pad_left'>"+"</td>"+
                     "<td class='options' guess='"+callReturned.id+"'>"+ callReturned.callS+"</td>"+
-                "<td class='pad_right'>"+"</td>"+
-              "</tr>"+ 
+                "<td class='pad_right' callicon='"+callReturned.id+"'>"+"</td>"+
+              "</tr>"+
               "<tr class='spacer'>"+"</tr>"
             $('#call_sign').append(callOptions)
            })
-/*
-  $(callReturned).each(function(){
-        var callOptions = ""+
-           "<div class='option_wrapper'>"+
-              "<div class='pad_left'>"+"</div>"+
-                  "<div class='options' guess='"+callReturned.id+"'>"+ callReturned.callS+"</div>"+
-              "<div class='pad_right'>"+"</div>"+
-            "</div>"
-                    $('#call_sign').append(callOptions)
-         })
-*/
     }
   }
 
@@ -119,14 +109,16 @@ $( document ).ready(function() {
     for(i = 0; i < uniqArray.length; i++){
       var callReturned= uniqArray[i]
       $(callReturned).each(function(){
-        var callOptions = ""+
-         "<div class='option_wrapper'>"+
-            "<div class='pad_left'>"+"</div>"+
-                "<div class='options' guess='"+callReturned.id+"'>"+ callReturned.airL+"</div>"+
-            "<div class='pad_right'>"+"</div>"+
-          "</div>"
-                    $('#airline').append(callOptions)
-         })
+         var callOptions = ""+
+            "<tr class='option_wrapper'>"+
+               "<td class='pad_left'>"+"</td>"+
+                   "<td class='options' guess='"+callReturned.id+"'>"+ callReturned.airL+"</td>"+
+               "<td class='pad_right' airicon='"+callReturned.id+"'>"+"</td>"+
+             "</tr>"+
+             "<tr class='spacer'>"+"</tr>"
+          $('#airline').append(callOptions)
+          })
+
     }
   }
 
@@ -139,68 +131,51 @@ $( document ).ready(function() {
     for(i = 0; i < uniqArray.length; i++){
       var callReturned= uniqArray[i]
       $(callReturned).each(function(){
-             var callOptions = ""+
-              "<div class='option_wrapper'>"+
-                "<div class='pad_left'>"+"</div>"+
-                  "<div class='options' guess='"+callReturned.id+"'>"+ callReturned.des+"</div>"+
-                "<div class='pad_right'>"+"</div>"+
-              "</div>"
-              $('#designator').append(callOptions)
+         var callOptions = ""+
+            "<tr class='option_wrapper'>"+
+               "<td class='pad_left'>"+"</td>"+
+                   "<td class='options' guess='"+callReturned.id+"'>"+ callReturned.des+"</td>"+
+               "<td class='pad_right' desicon='"+callReturned.id+"'>"+"</td>"+
+             "</tr>"+
+             "<tr class='spacer'>"+"</tr>"
+          $('#designator').append(callOptions)
           })
     }
   }
 
 
 $('#airline').delegate('.options', 'click', function(e){
-      $('#airline_error').remove()
-      $('#airline_correct').remove()
-      $('.options').removeClass('airline_selected')
+      _functions.clearAirline()
       $(this).addClass("airline_selected")
       airlineChoiceId =$(this).attr('guess')
       if(questionId != airlineChoiceId){
-         errorMsg = ""+"<div id='airline_error' class='error'>Oops.. try again</div>"
-          $('#airline').append(errorMsg)
+          $("#airline").addClass('error')
       }else if(questionId == airlineChoiceId){
-         correctMsg = ""+"<div id='airline_correct' class='correct'>Crowd Goes Wild</div>"
-                $('#airline').append(correctMsg)
-
+          $("#airline").addClass('correct')
       }
-      console.log('airlineChoiceId', airlineChoiceId)
+
   })
 
 $('#call_sign').delegate('.options', 'click', function(e){
-        $('#callsign_error').remove()
-        $('#callsign_correct').remove()
-        $('.options').removeClass('call_selected')
+        _functions.clearCallSign()
         $(this).addClass("call_selected")
         callsignChoiceId =$(this).attr('guess')
         if(questionId != callsignChoiceId){
-           errorMsg = ""+"<div id='callsign_error' class='error'>Oops.. try again</div>"
-            $('#call_sign').append(errorMsg)
+          $("#call_sign").addClass('error')
         }else if(questionId == callsignChoiceId){
-           correctMsg = ""+"<div id='callsign_correct' class='correct'>Crowd Goes Wild</div>"
-                  $('#call_sign').append(correctMsg)
-
+          $("#call_sign").addClass('correct')
         }
-
-        console.log('callsignChoiceId', callsignChoiceId)
     })
 
 $('#designator').delegate('.options', 'click', function(e){
-    $('#designator_error').remove()
-    $('#designator_correct').remove()
-    $('.options').removeClass('des_selected')
+      functions.clearDesignator()
     $(this).addClass("des_selected")
     designatorChoiceId =$(this).attr('guess')
     if(questionId != designatorChoiceId){
-       errorMsg = ""+"<div id='designator_error' class='error'>Oops.. try again</div>"
-              $('#designator').append(errorMsg)
+      $("#designator").addClass('error')
     }else if(questionId == designatorChoiceId){
-       correctMsg = ""+"<div id='designator_correct' class='correct'>Crowd Goes Wild</div>"
-              $('#designator').append(correctMsg)
-
+      $("#designator").addClass('correct')
     }
-
 })
 
 

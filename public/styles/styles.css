@@ -1,8 +1,8 @@
 .heading{
-      font-family: courier;
-      font-size: 20px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 23px;
       text-align: center;
-      font-weight: 900;
+      color: #0E6BE5; /*dark blue*/
 }
 
 .input{
@@ -20,16 +20,18 @@
     cursor: pointer;
     width: 45.5%;
     height: 34px;
-    background: #9c89f642;
+    background: #0E6BE5; /*dark blue*/
     border-radius: 3px;
     box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     margin: 0 7px 11px 0;
-    color: #888;
+    color: #F2EFC2; /*beige*/
+    border:2px solid #F2EFC2;
     text-align: center;
     transition: all 0.2s ease;
-    font: bold 18px Arial, sans-serif;
+    font: 18px Arial, sans-serif;
     padding-top: 10px;
-    margin-left: 2%;
+    margin-left: 27%;
+    margin-right: 27%
 }
 .button-new {
     display: inline-block;
@@ -39,11 +41,14 @@
 }
 .question{
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 500;
 }
 
 .question_block{
   text-align: center;
+  background: #0E6BE5;
+  color: #F2EFC2;
+  padding: 12px;
 }
 
 .option_wrapper{
@@ -60,11 +65,12 @@
 
 
 .pad_right{
-width: 6em;
+  width: 6em;
 }
 
+
 .pad_left{
-width: 6em;
+  width: 6em;
 }
 
 .spacer{
@@ -72,12 +78,15 @@ width: 6em;
   background:aqua;
 }
 .options {
-    border: 1px orange solid;
+    border: 1px #e7ebf0 solid;
     padding: 7px;
     margin-top: 10px;
     text-align:center;
     width: 15em;
-    border-radius: 5%
+    border-radius: 5%;
+    color:black;
+    font-size:19px;
+    background:#e7ebf0;
 }
 
 .option_block{
@@ -85,26 +94,31 @@ width: 6em;
 }
 
 .call_selected{
-  background:lightblue;
+  background:#0E6BE5;
+  color: #F2EFC2;
 }
 .airline_selected{
-  background:lightblue;
+  background:#0E6BE5;
+  color: #F2EFC2;
 }
-
 .des_selected{
-    background:lightblue;
+    background:#0E6BE5;
+    color: #F2EFC2;
 }
 
 .error{
-  background:red;
-  font-size: 18px;
+  background:#f28bb7;
+  color:white;
+  text-align:center;
+
+}
+
+.correct{
+  background:#b7f28b;
   color:white;
   text-align:center;
 }
 
-.correct{
-  background:green;
-  font-size: 18px;
-  color:white;
-  text-align:center;
-}
+
+
+/*  https://color.adobe.com/Blau-color-theme-11515683/edit/?copy=true*/

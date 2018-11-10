@@ -145,7 +145,11 @@ $( document ).ready(function() {
 
 
 $('#airline').delegate('.options', 'click', function(e){
-      _functions.clearAirline()
+      $('#airline_error').remove()
+      $('#airline_correct').remove()
+      $('.options').removeClass('airline_selected')
+      $('#airline').removeClass('error')
+      $('#airline').removeClass('correct')
       $(this).addClass("airline_selected")
       airlineChoiceId =$(this).attr('guess')
       if(questionId != airlineChoiceId){
@@ -157,6 +161,11 @@ $('#airline').delegate('.options', 'click', function(e){
   })
 
 $('#call_sign').delegate('.options', 'click', function(e){
+        $('#callsign_error').remove()
+        $('#callsign_correct').remove()
+        $('.options').removeClass('call_selected')
+        $('#call_sign').removeClass('error')
+        $('#call_sign').removeClass('correct')
         _functions.clearCallSign()
         $(this).addClass("call_selected")
         callsignChoiceId =$(this).attr('guess')
@@ -168,7 +177,11 @@ $('#call_sign').delegate('.options', 'click', function(e){
     })
 
 $('#designator').delegate('.options', 'click', function(e){
-      functions.clearDesignator()
+      $('#designator_error').remove()
+      $('#designator_correct').remove()
+      $('.options').removeClass('des_selected')
+      $("#designator").removeClass('correct')
+      $("#designator").removeClass('error')
     $(this).addClass("des_selected")
     designatorChoiceId =$(this).attr('guess')
     if(questionId != designatorChoiceId){

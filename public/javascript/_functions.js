@@ -13,8 +13,8 @@ function clear(){
 
   $('.question').remove()
   $('.option_wrapper').remove()
-  $('.correct').remove()
-  $('.error').remove()
+  $('.correct').removeClass()
+  $('.error').removeClass()
   $('.spacer').remove()
 }
 

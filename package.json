@@ -10,7 +10,7 @@
   "scripts": {
     "build": "browserify public/javascript/client.js -o public/bundle.js & watchify public/javascript/client.js -o public/bundle.js -dv -t babelify",
     "watch": "watchify public/javascript/client.js -o public/bundle.js -dv -t babelify",
-    "start": "npm run start"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",

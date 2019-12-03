@@ -1,4 +1,4 @@
-var PORT =process.env.Port || 3000
+var PORT = 3000
 var express = require('express')
 var app = express()
 var path = require('path')

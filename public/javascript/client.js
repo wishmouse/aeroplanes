@@ -9,17 +9,44 @@ emptyArray =[]
 
 $( document ).ready(function() {
   data=[
-      {id:'1', airL:'Air Astana', callS:'KZR', des:'ASTANALINE'},
-      {id:'2', airL:'Air Busan', callS:'ABL', des:'AIR BUSAN'},
-      {id:'3', airL:'Air Canada', callS:'ACA', des:'AIR CANADA'},
-      {id:'4', airL:'Air China', callS:'CCA', des:'AIR CHINA'},
-      {id:'5', airL:'Air France', callS:'AFR', des:'AIRFRANS'},
-      {id:'6', airL:'Air Mauritius', callS:'MAU', des:'AIRMAURITIUS'},
-      {id:'7', airL:'Air New Zealand', callS:'ANZ', des:'NEW ZEALAND'},
-      {id:'8', airL:'Air Niugini', callS:'ANG', des:'NIUGINI'},
-      {id:'9', airL:'AirAsia', callS:'AXM', des:'RED CAP'},
-
-    ]
+{id:'1', airL:'Aeroflot Russian', callS:'AFL', des:'Aeroflot'},
+{id:'2', airL:'Aerologic', callS:'BOX', des:'German Cargo'},
+{id:'3', airL:'Air Hong Kong', callS:'AHK', des:'Air Hong Kong'},
+{id:'4', airL:'Air Asia Berhad', callS:'AXM', des:'Redcap'},
+{id:'5', airL:'Air Astana', callS:'KZR', des:'Astanaline'},
+{id:'6', airL:'Air Busan', callS:'ABL', des:'Air Busan'},
+{id:'7', airL:'Air Canada', callS:'ACA', des:'Air Canada'},
+{id:'8', airL:'Air china', callS:'CCA', des:'Air china'},
+{id:'9', airL:'Air France', callS:'AFR', des:'Air Frans'},
+{id:'10', airL:'Air India', callS:'AIC', des:'Air India'},
+{id:'11', airL:'Air Japan', callS:'AJX', des:'Air Japan'},
+{id:'12', airL:'Air Mauritius', callS:'MAU', des:'Air Mauritius'},
+{id:'13', airL:'Air New Zealand', callS:'ANZ', des:'Air New Zealand'},
+{id:'14', airL:'Air Niugini', callS:'ANG', des:'Niugini'},
+{id:'15', airL:'Air Pacific', callS:'FJI', des:'Fiji'},
+{id:'16', airL:'Airbridge Cargo', callS:'ABW', des:'Airbridge Cargo'},
+{id:'17', airL:'All Nippon ', callS:'ANA', des:'All Nippon'},
+{id:'18', airL:'American Airlines', callS:'AAL', des:'America'},
+{id:'19', airL:'Asiana Airlines', callS:'AAR', des:'Asiana'},
+{id:'20', airL:'Atlas Air', callS:'GTI', des:'Giant'},
+{id:'21', airL:'Aurora Airlines', callS:'SHU', des:'Aurora'},
+{id:'22', airL:'Austrian Airlines', callS:'AUA', des:'Austrian'},
+{id:'23', airL:'Bangkok Airways', callS:'BKP', des:'Bankock Air'},
+{id:'24', airL:'Bishmillah Airlines', callS:'BML', des:'Bishmillah'},
+{id:'25', airL:'British Airlines', callS:'BAW', des:'Speedbird'},
+{id:'26', airL:'Cargolux Airlines', callS:'CLX', des:'Cargolux '},
+{id:'27', airL:'Cargolux Italia', callS:'ICV', des:'Cargolux Italia'},
+{id:'28', airL:'Cathay Pacific', callS:'CPA', des:'Cathay'},
+{id:'29', airL:'Cebu Pacific', callS:'CEB', des:'Cebu Air'},
+{id:'30', airL:'China Airlines', callS:'CAL', des:'Dynasty'},
+{id:'31', airL:'China Cargo', callS:'CKK', des:'Cargo King'},
+{id:'32', airL:'China Eastern', callS:'CES', des:'China Eastern'},
+{id:'33', airL:'China Southern General', callS:'SAG', des:'Aero Eagle'},
+{id:'34', airL:'China Southern', callS:'CSN', des:'China Southern'},
+{id:'35', airL:'Citilink Indonesia', callS:'CTV', des:'Super Green'},
+{id:'36', airL:'Deta Airlines', callS:'DAL', des:'Delta'},
+{id:'37', airL:'Eastar Jet', callS:'ESR', des:'Eastarjet'}
+ ]
 
   $('#new').click(function(){
     _functions.clear()

@@ -8,8 +8,7 @@
   "description": "Airline Call signs",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "build": "browserify public/javascript/client.js -o public/bundle.js & watchify public/javascript/client.js -o public/bundle.js -dv -t babelify"
+    "start": "node ./index.js"
   },
   "repository": {
     "type": "git",

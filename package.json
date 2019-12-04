@@ -9,6 +9,7 @@
   "main": "index.js",
   "scripts": {
     "watchify": "watchify public/javascript/client.js -o public/bundle.js",
+    "postinstall": "browserify public/javascript/client.js -o publi/bundle.js", 
     "start": "node ./index.js"
   },
   "repository": {

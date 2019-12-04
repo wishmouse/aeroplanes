@@ -1,4 +1,4 @@
-var PORT = process.env.PORT || 3000
+var PORT = process.env.PORT || 3000;
 var express = require('express')
 var app = express()
 var path = require('path')
@@ -18,9 +18,9 @@ app.get('/', function(req, res){
   res.render("index")
 })
 
-
+/*
 app.listen(PORT, function(){
   console.log("pushing tin .... 3000")
 })
-
+*/
 module.exports = app

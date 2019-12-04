@@ -8,7 +8,7 @@
   "description": "Airline Call signs",
   "main": "index.js",
   "scripts": {
-    "build": "watchify public/javascript/client.js -o public/bundle.js",
+    "watchify": "watchify public/javascript/client.js -o public/bundle.js",
     "start": "node ./index.js"
   },
   "repository": {

@@ -18,9 +18,9 @@ app.get('/', function(req, res){
   res.render("index")
 })
 
-/*
+
 app.listen(PORT, function(){
   console.log("pushing tin .... 3000")
 })
-*/
+
 module.exports = app

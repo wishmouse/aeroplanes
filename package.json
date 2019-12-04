@@ -9,7 +9,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "build": "browserify public/javascript/client.js -o public/bundle.js & watchify public/javascript/client.js -o public/bundle.js -dv -t babelify",
     "watch": "watchify public/javascript/client.js -o public/bundle.js -dv -t babelify"
   },
   "repository": {

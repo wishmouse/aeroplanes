@@ -12,6 +12,11 @@
 .button-wrapper {
     padding-top: 5%
 }
+.button-wrapper-a{
+    text-align: center;
+}
+
+
 .inside-button {
     display: inline-block;
     float: left;
@@ -119,6 +124,9 @@
   text-align:center;
 }
 
+.floated{
+  display: inline-block;
+}
 
 
 /*  https://color.adobe.com/Blau-color-theme-11515683/edit/?copy=true*/

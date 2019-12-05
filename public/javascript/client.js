@@ -49,8 +49,9 @@ $( document ).ready(function() {
     {id:'37', airL:'Eastar Jet', callS:'Eastarjet', des:'ESR'}
 
  ]
-
-  $('#new').click(function(){
+ // random
+  $('.floated').click(function(){
+    whichButton = $(this).attr("id")
     _functions.clear()
 
   random = data[Math.floor(Math.random()*data.length)]
@@ -60,7 +61,6 @@ $( document ).ready(function() {
         if(newArray.length <options || uniqArray.length <options){
           opt1 = data[Math.floor(Math.random()*data.length)]
             newArray.push(opt1)
-            console.log("newArray:",newArray);
             uniqArray = newArray.reduce(function(a,b){
               if (a.indexOf(b) < 0 ) a.push(b);
               return a;
@@ -75,10 +75,18 @@ $( document ).ready(function() {
                     return 0;
                   }
                 uniqArray.sort(compare);
-                oneOfThreeSelect()
+                if (whichButton == 'random'){
+                      oneOfThreeSelect()
+                }else if (whichButton == 'designator'){
+                    setDesignator()
+                }
+
         }
       }
   });
+
+
+
 
   function oneOfThreeSelect(){
     oneOfThree = Math.floor(Math.random() * 3) + 1;
@@ -103,17 +111,22 @@ $( document ).ready(function() {
       optionsDesignator()
       console.log('random.id', random.id)
     }else if (oneOfThree == 3){ // designator is the question
-      questionId = random.id
-      var question = ""+
-                  "<div class='question'>"+
-                    "<div class='question_block' guess='"+random.id+"'>"+ random.des+"</div>"+
-                  "</div>"
-        $('#designator').append(question)
-        optionsCallSigns()
-        optionsAirlines()
-        console.log('random.id', random.id)
+      setDesignator()
+
       }
   }
+
+function setDesignator(){
+  questionId = random.id
+  var question = ""+
+              "<div class='question'>"+
+                "<div class='question_block' guess='"+random.id+"'>"+ random.des+"</div>"+
+              "</div>"
+    $('#designator').append(question)
+    optionsCallSigns()
+    optionsAirlines()
+    console.log('random.id', random.id)
+}
 
   function optionsCallSigns(){
     console.log('uniqArray:', uniqArray)

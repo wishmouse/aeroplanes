@@ -99,7 +99,7 @@ $( document ).ready(function() {
       $('#airline').append(question)
       optionsCallSigns()
       optionsDesignator()
-      console.log('random.id', random.id)
+      console.log('random.id Airline', random.id)
     }else if(oneOfThree == 2){ //call sign is the question
       questionId = random.id
       var question = ""+
@@ -109,7 +109,7 @@ $( document ).ready(function() {
       $('#call_sign').append(question)
       optionsAirlines()
       optionsDesignator()
-      console.log('random.id', random.id)
+      console.log('random.id Call Sign', random.id)
     }else if (oneOfThree == 3){ // designator is the question
       setDesignator()
 
@@ -125,11 +125,14 @@ function setDesignator(){
     $('#designator').append(question)
     optionsCallSigns()
     optionsAirlines()
-    console.log('random.id', random.id)
+    console.log('random.id Designator', random.id)
 }
 
   function optionsCallSigns(){
-    console.log('uniqArray:', uniqArray)
+    console.log('uniqArray optionsCallSigns:', uniqArray)
+    uniqArray.sort(function() {
+    return .5 - Math.random();
+  });
     for(i = 0; i < uniqArray.length; i++){
 
       var callReturned= uniqArray[i]
@@ -147,7 +150,10 @@ function setDesignator(){
   }
 
   function optionsAirlines(){
-    console.log('uniqueArray:', uniqArray)
+    console.log('uniqueArray options Airlines:', uniqArray)
+    uniqArray.sort(function() {
+    return .5 - Math.random();
+  });
     for(i = 0; i < uniqArray.length; i++){
       var callReturned= uniqArray[i]
       $(callReturned).each(function(){
@@ -165,7 +171,7 @@ function setDesignator(){
   }
 
   function optionsDesignator(){
-    console.log('uniqArray', uniqArray)
+    console.log('uniqArray optionsDesignator', uniqArray)
       uniqArray.sort(function() {
       return .5 - Math.random();
     });

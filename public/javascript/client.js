@@ -6,6 +6,7 @@ newArray = []
 newObject ={}
 uniqArray =[]
 emptyArray =[]
+options = 5
 
 $( document ).ready(function() {
   data=[
@@ -55,10 +56,10 @@ $( document ).ready(function() {
   newArray.push(random)
   buildNewArray()
     function buildNewArray(){
-        if(newArray.length <6 || uniqArray.length <6){
+        if(newArray.length <options || uniqArray.length <options){
           opt1 = data[Math.floor(Math.random()*data.length)]
             newArray.push(opt1)
-            console.log(newArray);
+            console.log("newArray:",newArray);
             uniqArray = newArray.reduce(function(a,b){
               if (a.indexOf(b) < 0 ) a.push(b);
               return a;

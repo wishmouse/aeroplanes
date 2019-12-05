@@ -10,6 +10,7 @@
   "scripts": {
     "build": "browserify public/javascript/client.js -o public/bundle.js & watchify public/javascript/client.js -o public/bundle.js -dv -t babelify",
     "watch": "watchify public/javascript/client.js -o public/bundle.js -dv -t babelify",
+        "postinstall": "browserify public/javascript/client.js -o public/bundle.js",
     "start": "node ./index.js"
   },
   "repository": {

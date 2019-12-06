@@ -10,6 +10,9 @@ function clear(){
   callOptions = ''
   callReturned = ''
   errorMsg =''
+  designator_answer =''
+  call_sign_answer =''
+  airline_answer =''
 
   $('.question').remove()
   $('.option_wrapper').remove()

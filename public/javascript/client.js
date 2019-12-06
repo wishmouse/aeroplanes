@@ -7,6 +7,10 @@ newObject ={}
 uniqArray =[]
 emptyArray =[]
 options = 5
+score = 0
+designator_answer = 'x'
+call_sign_answer = 'x'
+airline_answer = 'x'
 
 $( document ).ready(function() {
   data=[
@@ -52,6 +56,11 @@ $( document ).ready(function() {
  // random
   $('.floated').click(function(){
     whichButton = $(this).attr("id")
+    console.log("whichButton::", whichButton)
+    console.log('designator_answer', designator_answer)
+    console.log('call_sign_answer', call_sign_answer)
+    console.log('airline_answer', airline_answer)
+    scoring()
     _functions.clear()
 
   random = data[Math.floor(Math.random()*data.length)]
@@ -202,8 +211,10 @@ $('#airline').delegate('.options', 'click', function(e){
       airlineChoiceId =$(this).attr('guess')
       if(questionId != airlineChoiceId){
           $("#airline").addClass('error')
+        score = 0
       }else if(questionId == airlineChoiceId){
           $("#airline").addClass('correct')
+          airline_answer = 'correct'
       }
 
   })
@@ -219,8 +230,11 @@ $('#call_sign').delegate('.options', 'click', function(e){
         callsignChoiceId =$(this).attr('guess')
         if(questionId != callsignChoiceId){
           $("#call_sign").addClass('error')
+         score = 0
         }else if(questionId == callsignChoiceId){
           $("#call_sign").addClass('correct')
+         call_sign_answer = 'correct'
+         console.log('call_sign_answer',call_sign_answer)
         }
     })
 
@@ -234,11 +248,29 @@ $('#designator').delegate('.options', 'click', function(e){
     designatorChoiceId =$(this).attr('guess')
     if(questionId != designatorChoiceId){
       $("#designator").addClass('error')
+      score =0
     }else if(questionId == designatorChoiceId){
       $("#designator").addClass('correct')
+      designator_answer = 'correct'
     }
 })
 
+function scoring(){
+if(designator_answer == 'x' && call_sign_answer =='x' && airline_answer == 'x'){
+      score = 0
+      $('#the-score').text(score)
+      console.log('at xx')
+}else if(designator_answer == '' && call_sign_answer =='' && airline_answer == ''){
+          score = 0
+          $('#the-score').text(score)
+          console.log('at blank')
+}else if(designator_answer != 'x' && call_sign_answer !='x' && airline_answer != 'x'){
+    score++
+    $('#the-score').text(score)
+    console.log('!= x')
+  }
+
+}
 
 
 }); // end doc ready

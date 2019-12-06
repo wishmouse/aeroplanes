@@ -21,7 +21,7 @@ $( document ).ready(function() {
     {id:'5', airL:'Air Astana', callS:'Astanaline', des:'KZR'},
     {id:'6', airL:'Air Busan', callS:'Air Busan', des:'ABL'},
     {id:'7', airL:'Air Canada', callS:'Air Canada', des:'ACA'},
-    {id:'8', airL:'Air china', callS:'Air china', des:'CCA'},
+    {id:'8', airL:'Air China', callS:'Air China', des:'CCA'},
     {id:'9', airL:'Air France', callS:'Air Frans', des:'AFR'},
     {id:'10', airL:'Air India', callS:'Air India', des:'AIC'},
     {id:'11', airL:'Air Japan', callS:'Air Japan', des:'AJX'},
@@ -31,7 +31,7 @@ $( document ).ready(function() {
     {id:'15', airL:'Fiji Airways', callS:'Fiji', des:'FJI'},
     {id:'16', airL:'Airbridge Cargo', callS:'Airbridge Cargo', des:'ABW'},
     {id:'17', airL:'All Nippon ', callS:'All Nippon', des:'ANA'},
-    {id:'18', airL:'American Airlines', callS:'America', des:'AAL'},
+    {id:'18', airL:'American Airlines', callS:'American', des:'AAL'},
     {id:'19', airL:'Asiana Airlines', callS:'Asiana', des:'AAR'},
     {id:'20', airL:'Atlas Air', callS:'Giant', des:'GTI'},
     {id:'21', airL:'Aurora Airlines', callS:'Aurora', des:'SHU'},
@@ -49,17 +49,14 @@ $( document ).ready(function() {
     {id:'33', airL:'China Southern General', callS:'Aero Eagle', des:'SAG'},
     {id:'34', airL:'China Southern', callS:'China Southern', des:'CSN'},
     {id:'35', airL:'Citilink Indonesia', callS:'Super Green', des:'CTV'},
-    {id:'36', airL:'Deta Airlines', callS:'Delta', des:'DAL'},
+    {id:'36', airL:'Delta Airlines', callS:'Delta', des:'DAL'},
     {id:'37', airL:'Eastar Jet', callS:'Eastarjet', des:'ESR'}
 
  ]
  // random
   $('.floated').click(function(){
-    whichButton = $(this).attr("id")
+    whichButton = $(this).attr("value")
     console.log("whichButton::", whichButton)
-    console.log('designator_answer', designator_answer)
-    console.log('call_sign_answer', call_sign_answer)
-    console.log('airline_answer', airline_answer)
     scoring()
     _functions.clear()
 
@@ -234,7 +231,6 @@ $('#call_sign').delegate('.options', 'click', function(e){
         }else if(questionId == callsignChoiceId){
           $("#call_sign").addClass('correct')
          call_sign_answer = 'correct'
-         console.log('call_sign_answer',call_sign_answer)
         }
     })
 
@@ -259,15 +255,12 @@ function scoring(){
 if(designator_answer == 'x' && call_sign_answer =='x' && airline_answer == 'x'){
       score = 0
       $('#the-score').text(score)
-      console.log('at xx')
 }else if(designator_answer == '' && call_sign_answer =='' && airline_answer == ''){
           score = 0
           $('#the-score').text(score)
-          console.log('at blank')
 }else if(designator_answer != 'x' && call_sign_answer !='x' && airline_answer != 'x'){
     score++
     $('#the-score').text(score)
-    console.log('!= x')
   }
 
 }

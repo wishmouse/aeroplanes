@@ -26,6 +26,7 @@
 }
 
 
+
 .inside-button {
     display: inline-block;
     float: left;
@@ -44,8 +45,7 @@
     transition: all 0.2s ease;
     font: 18px Arial, sans-serif;
     padding-top: 10px;
-    margin-left: 27%;
-    margin-right: 27%
+
 }
 .button-new {
     display: inline-block;
@@ -67,15 +67,7 @@
 
 .option_wrapper{
 
-}/*
-.pad_left{
-  float: left;
-  width: 31%;
-  margin: 20px 1.15%;
-  height: 160px;
-  background-color: #B2D6FF;
-}*/
-
+}
 
 
 .pad_right{

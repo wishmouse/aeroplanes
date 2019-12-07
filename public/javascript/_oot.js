@@ -3,6 +3,7 @@ var request = require('superagent')
 
 
 function oneOfThreeSelect(){
+  alert("boomch")
   oneOfThree = Math.floor(Math.random() * 3) + 1;
   if(oneOfThree == 1){ //airline is the question
     questionId = random.id

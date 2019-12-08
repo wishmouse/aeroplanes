@@ -172,6 +172,10 @@ $( document ).ready(function() {
                       oneOfThreeSelect()
                 }else if (whichButton == 'designator'){
                     setDesignator()
+                }else if (whichButton == 'airline'){
+                    setAirline()
+                }else if (whichButton == 'callsign'){
+                    setCallSign()
                 }
         }
       }
@@ -183,32 +187,38 @@ $( document ).ready(function() {
   function oneOfThreeSelect(){
     oneOfThree = Math.floor(Math.random() * 3) + 1;
     if(oneOfThree == 1){ //airline is the question
-      questionId = random.id
-      var question = ""+
-                  "<div class='question'>"+
-                    "<div class='question_block' guess='"+random.id+"'>"+ random.airL+"</div>"+
-                  "</div>"
-      $('#airline').append(question)
-      optionsCallSigns()
-      optionsDesignator()
-      console.log('random.id Airline', random.id)
+      setAirline()
     }else if(oneOfThree == 2){ //call sign is the question
-      questionId = random.id
-      var question = ""+
-                  "<div class='question'>"+
-                    "<div class='question_block' guess='"+random.id+"'>"+ random.callS+"</div>"+
-                  "</div>"
-      $('#call_sign').append(question)
-      optionsAirlines()
-      optionsDesignator()
-      console.log('random.id Call Sign', random.id)
+      setCallSign()
     }else if (oneOfThree == 3){ // designator is the question
-
       setDesignator()
 
       }
   }
 
+function setAirline(){
+  questionId = random.id
+  var question = ""+
+              "<div class='question'>"+
+                "<div class='question_block' guess='"+random.id+"'>"+ random.airL+"</div>"+
+              "</div>"
+  $('#airline').append(question)
+  optionsCallSigns()
+  optionsDesignator()
+  console.log('random.id Airline', random.id)
+}
+
+function setCallSign(){
+  questionId = random.id
+  var question = ""+
+              "<div class='question'>"+
+                "<div class='question_block' guess='"+random.id+"'>"+ random.callS+"</div>"+
+              "</div>"
+  $('#call_sign').append(question)
+  optionsAirlines()
+  optionsDesignator()
+  console.log('random.id Call Sign', random.id)
+}
 function setDesignator(){
   questionId = random.id
   var question = ""+

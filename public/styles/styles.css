@@ -29,7 +29,7 @@
     position: relative;
     top: 0;
     cursor: pointer;
-    width: 45.5%;
+    width: 20%;
     height: 34px;
     background: #0E6BE5; /*dark blue #*/
     border-radius: 3px;
@@ -39,7 +39,7 @@
     border:2px solid #F2EFC2;
     text-align: center;
     transition: all 0.2s ease;
-    font: 18px Arial, sans-serif;
+    font: 13px Arial, sans-serif;
     padding-top: 10px;
 
 }

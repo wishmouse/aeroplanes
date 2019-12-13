@@ -149,5 +149,10 @@
     text-align: center;
     color: #0E6BE5; /*dark blue*/
 }
-
+.center_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+}
 /*  https://color.adobe.com/Blau-color-theme-11515683/edit/?copy=true*/

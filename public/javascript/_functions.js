@@ -46,10 +46,17 @@ function clearDesignator(){
 
 }
 
+function clearLivery(){
+  $('#livery-des').val("")
+  $('#livery_question').remove()
+
+}
+
+
 module.exports = {
       clear:clear,
       clearAirline:clearAirline,
       clearCallSign:clearCallSign,
       clearAirline:clearDesignator,
-
+      clearLivery:clearLivery
   }

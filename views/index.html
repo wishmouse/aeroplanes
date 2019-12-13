@@ -24,8 +24,14 @@
   </head>
 
   <body>
-    <div>
+    <div id='livery_wrapper'>
+       <div id=livery_image> </div>
+       <input type="text" style="text-align:center" name="livery-des" id='livery-des' placeholder='Enter 3 letter designator'>
+       <br>
 
+       <input type="submit" value="submit" id="submit">
+    </div>
+    <div>
       <div id='the-score' class='score-heading'>1</div>
       <div class = 'spacer-heading'> </div>
       <div class='airline-heading'>Airline </div>
@@ -39,9 +45,12 @@
           <div class='heading'>Designator </div>
     </div>
     <div class='button-wrapper'>
-      <div class='inside-button'>
+    <!--  <div class='inside-button'>
           <span id='random_new' class='floated' value='random'>Random</span>
-      </div>
+      </div> -->
+      <div class='inside-button'>
+            <span id='livery-new' class='floated' value='livery'>Livery</span>
+        </div>
       <div class='inside-button'>
           <span id='designator_new' class='floated' value='designator'>Designator</span>
       </div>

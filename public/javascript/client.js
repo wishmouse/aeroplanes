@@ -338,7 +338,7 @@ $('#airline').delegate('.options', 'click', function(e){
 
   })
 
-  $( "#submit" ).click(function() {
+  $("#submit" ).click(function() {
    liveryAnswer = $("#livery-des").val().toUpperCase()
    console.log('liveryAnswer', liveryAnswer)
     console.log('randomImage.des', randomImage.des)
@@ -348,6 +348,18 @@ $('#airline').delegate('.options', 'click', function(e){
      $("#livery_wrapper").attr('class', 'error')
    }
 });
+
+  $("#hint" ).click(function() {
+    $("#hint_wrapper").show()
+    isAValue = $("#hint_answer").html()
+    if(isAValue == ""){
+      firstLetter = randomImage.des.charAt(0)
+      $("#hint_answer").html(firstLetter)
+    } else if(isAValue != ''){
+      $("#hint_answer").val('')
+      $("#hint_answer").html(randomImage.des)
+    }
+  })
 
 $('#call_sign').delegate('.options', 'click', function(e){
         $('#callsign_error').remove()

@@ -19,6 +19,7 @@ function clear(){
   $('.correct').removeClass()
   $('.error').removeClass()
   $('.spacer').remove()
+  $('.hint_wrapper').hide()
 }
 
 function clearAirline(){
@@ -49,7 +50,8 @@ function clearDesignator(){
 function clearLivery(){
   $('#livery-des').val("")
   $('#livery_question').remove()
-
+  $('#hint_wrapper').hide()
+  $('#hint_answer').empty()
 }
 
 

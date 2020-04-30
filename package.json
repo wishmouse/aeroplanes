@@ -29,7 +29,7 @@
     "express": "^4.17.1",
     "handlebars": "^4.5.3",
     "hbsfy": "^2.8.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "nodemon": "^1.19.4",
     "pg": "^7.14.0",
     "superagent": "^4.0.0-beta.5",
